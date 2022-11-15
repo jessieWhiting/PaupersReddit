@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    text-align:center;
+}
+body{
+    background-color: peachpuff;
+    border: 2px solid black;
+    padding: 90px;
+}
