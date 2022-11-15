@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PauperService } from './pauper.service';
-import { ChildData, Reddit } from './reddit';
+import { Child, Reddit } from './reddit';
 
 @Component({
   selector: 'app-root',
@@ -9,30 +9,32 @@ import { ChildData, Reddit } from './reddit';
 })
 export class AppComponent {
   title = 'PaupersReddit';
-
-  resultReddit : ChildData[] = [];
+  //Simplifies so you don't have to define your fields.
+  result : Reddit = {} as Reddit;
+  ResultPost : Child[] = [];
   SearchName : string = "";
-  SearchIndex : number = 1;
+  // SearchIndex : number = 1;
 
 constructor(private pauperAPI : PauperService){}
 
 
   SearchRedditByName(kind : string) {
-    this.resultReddit = [];
-    this.pauperAPI.GetRedditByName(kind).subscribe((result : ChildData)=>{this.resultReddit.push(result)});
+    this.ResultPost = [];
+    this.pauperAPI.GetRedditByName(kind).subscribe((result : Reddit)=>{
+    //This is backend use in this case. For you to confirm you're talking to the API.
+    console.log(result); 
+      this.result = result;
+      
+      this.ResultPost = this.result.data.children;
+    });
   }
 
-  SearchRedditByIndex(index : number) : void{
-    this.resultReddit = [];
-    this.pauperAPI.GetRedditByIndex(index).subscribe((result : ChildData) => {this.resultReddit.push(result)});
-  }
+  //  GetRandomNum(min : number, max : number)
+  // {
+  //   return Math.floor(Math.random() * max) + min;      
+  // }
 
-   GetRandomNum(min : number, max : number)
-  {
-    return Math.floor(Math.random() * max) + min;      
-  }
-
-  RandomReddit() : number{
-    return this.GetRandomNum(1,9999);
-  }
+  // RandomReddit() : number{
+  //   return this.GetRandomNum(1,9999);
+  // }
 }
