@@ -4,17 +4,16 @@
 <input type = "text" [(ngModel)] = "SearchName"/>
 <button (click)="SearchRedditByName(SearchName)">View Results</button>
 
-<p>Search By Index: </p>
+<!-- <p>Search By Index: </p>
 <input type="text" [(ngModel)] = "SearchIndex"/>
 <button (click)="SearchRedditByIndex(SearchIndex)">View Result</button>
 
 <p>Random Reddit Post: </p>
-<button (click) = "SearchRedditByIndex(RandomReddit())">Random Result</button>
+<button (click) = "SearchRedditByIndex(RandomReddit())">Random Result</button> -->
 
-<div *ngFor="let r of resultReddit">
-<p>Id: {{r.id}}</p>
-<p>Name: {{r.name}}</p>
-<p>Thumbnail: {{r.thumbnail}}</p>
-<p></p>
-<p></p>
+<div *ngFor="let r of ResultPost; index as i">
+  
+<a href="{{'https://www.reddit.com' + r.data.permalink}}">View Thread:<img src="{{r.data.thumbnail}}"/></a>
+<p>Name: {{r.data.title}}</p>
+
 </div>
