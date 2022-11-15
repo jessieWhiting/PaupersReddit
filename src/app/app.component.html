@@ -1,8 +1,9 @@
 <h2>Welcome to the Pauper's Reddit</h2>
-<div></div>
+<div>
 <p>Select by Keyword: </p>
 <input type = "text" [(ngModel)] = "SearchName"/>
 <button (click)="SearchRedditByName(SearchName)">View Results</button>
+</div>
 
 <!-- <p>Search By Index: </p>
 <input type="text" [(ngModel)] = "SearchIndex"/>
@@ -13,7 +14,7 @@
 
 <div *ngFor="let r of ResultPost; index as i">
   
-<a href="{{'https://www.reddit.com' + r.data.permalink}}"><img src="{{r.data.thumbnail}}"/></a>
+<a href="{{'https://www.reddit.com' + r.data.permalink}}"><img src="{{r.data.thumbnail}}" style="width:300px;height:300px;"/></a>
 <p>Name: {{r.data.title}}</p>
 
 </div>

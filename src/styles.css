@@ -1,8 +1,16 @@
 *{
     text-align:center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
 }
 body{
     background-color: peachpuff;
-    border: 2px solid black;
-    padding: 90px;
+}
+p{
+    font-size: 20px;
+}
+div{
+    border: 3px solid black;
+    border-radius: 15px;
+    padding: 90px;   
 }
